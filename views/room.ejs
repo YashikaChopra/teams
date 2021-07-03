@@ -51,9 +51,12 @@
           <div class="main__controls">
 
             <div class="main__controls__block">
-                <div class="main__controls__button">
+                <div onclick="leaveMeet() " class="main__controls__button">
                    <span class="leave_meeting">Leave Meeting</span>
                 </div>
+                <!-- <div className="input-sec">
+                  <input id="peername" name = "peername" placeholder="Enter name" />
+              </div> -->
              </div>
 
              <div class="main__controls__block">
@@ -66,6 +69,17 @@
                    <span>Stop Video</span>
                 </div>
              </div>
+
+             <div class="main__controls__block">
+                <div onclick="shareScreen()" class="main__controls__button main__present_button">
+                    <i class="fas fa-desktop"></i>
+                   <span>Present now</span>
+                </div>
+                <div onclick="screenRecord()" id="record" class="main__controls__button main__record_button">
+                  <i class="fas fa-record-vinyl"></i>
+                 <span>Record</span>
+              </div>
+            </div>
              <!-- <div class="main__controls__block">
                 <div class="main__controls__button">
                    <i class="fas fa-shield-alt"></i>

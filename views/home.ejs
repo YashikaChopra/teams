@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="homeStyle.css">
+    <script>
+        function joinRoom(){
+           var code = document.getElementById('codelink').value 
+           window.location.href = code
+        }
+    </script>
+    <script src="script.js"></script>
+    <title>MS Teams</title>
+</head>
+<body>
+    <div class="home-page">
+            <div class="content">
+                <h1><b>Teams Meet</b></h1>
+                <br>
+                <br>
+                <div class="action-btn">
+                  <button className="btn green" onclick="window.location.href='/homepage'">
+                    <FontAwesomeIcon className="icon-block" icon={faVideo} />
+                    Create a Meeting</a>
+                  </button>
+                  <br>
+                  <br>
+                  <div className="input-block">
+                    <!-- <div className="input-sec">
+                        <input id="peername" name = "peername" placeholder="Enter name" />
+                    </div> -->
+                    <div className="input-section">
+                      <FontAwesomeIcon className="icon-block" icon={faKeyboard} />
+                      <input id="codelink" placeholder="Enter a link" />
+                    </div>
+                    <button onclick="joinRoom()" className="btn no-bg">Join</button>
+                  </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
