@@ -52,8 +52,8 @@ navigator.mediaDevices.getUserMedia({
 
     // input value
     let text = $('#chat_message')
-    let peerName = $('#peername').val()
-
+    // let peerName = $('#peername').val()
+    // const peerName = localStorage.getItem("nameEntered")
     // when press enter send message
     $('html').keydown(function (e) {
         if (e.which == 13 && text.val().length !== 0) {
@@ -63,6 +63,7 @@ navigator.mediaDevices.getUserMedia({
         }
     });
     socket.on("createMessage", message => {
+      // console.log(peerName)
         $("ul").append(`<li class="message"><b>Anonymous</b><br/>${message}</li>`);
         scrollToBottom()
     })
