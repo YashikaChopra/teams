@@ -18,6 +18,20 @@
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
 
     <script src="script.js" defer></script>
+    <script>
+      function copyToClipboard(){
+         var copycode = window.location.pathname.split('/')
+         var dummy = document.createElement("textarea");
+         dummy.value = copycode[1]
+         document.body.appendChild(dummy);
+         console.log(dummy)
+         console.log(copycode[0])
+         dummy.select()
+         document.execCommand("copy")
+         alert("Copied the call code: " + dummy.value);
+         document.body.removeChild(dummy);
+      }
+   </script>
 
     <!-- <script>
        var person = null
@@ -80,6 +94,12 @@
                    <span>Stop Video</span>
                 </div>
              </div>
+             <div class="main__controls__block">
+               <div onclick="copyToClipboard()" class="main__controls__button">
+                  <i class="fas fa-clipboard"></i>
+                  <span>Copy code</span>
+               </div>
+            </div>
 
              <!-- <div class="main__controls__block">
                 <div onclick="shareScreen()" class="main__controls__button main__present_button">
