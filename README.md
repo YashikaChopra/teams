@@ -34,6 +34,9 @@ npm run devStart
 - Bootstrap
 - JQuery
 - Javascript
+- ejs
+- HTML
+- CSS
 - short-uuid
 
 
