@@ -1,12 +1,5 @@
-.home-page{
-    /* height: 100vh; */
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-}
 body{
-    background-image: url("img.png");
-    background-size: cover;
+    background-image: url("chat.png");
     opacity: 1;
 }
 

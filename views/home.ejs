@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script defer src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -14,34 +15,54 @@
            var code = document.getElementById('codelink').value 
            window.location.href = '/' + code
         }
+        function joinChatRoom(){
+           var chatcode = document.getElementById('chatRoomCode').value 
+           window.location.href = '/chat/' + chatcode
+        }
     </script>
     <script src="script.js"></script>
     <title>MS Teams</title>
 </head>
 <body>
+  <br>
+  <h1 style="text-align: center"><b>Teams</b></h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
     <div class="home-page">
             <div class="content">
-                <h1><b>Teams Meet</b></h1>
-                <br>
-                <br>
                 <div class="action-btn">
-                  <button className="btn green" onclick="window.location.href='/homepage'">
-                    <FontAwesomeIcon className="icon-block" icon={faVideo} />
+                  <button className="btn green" data-toggle="tooltip" data-placement="left" 
+                  data-html="true" title="Click to join meet with unique meet code" onclick="window.location.href='/homepage'">
                     Create a Meeting</a>
                   </button>
                   <br>
                   <br>
+                  <br>
                   <div className="input-block">
-                    <!-- <div className="input-sec">
-                        <input id="peername" name = "peername" placeholder="Enter name" />
-                    </div> -->
                     <div className="input-section">
-                      <FontAwesomeIcon className="icon-block" icon={faKeyboard} />
-                      <input id="codelink" placeholder="Enter a link" />
+                      <input id="codelink" placeholder="Enter a code" />
+                      <br>
                     </div>
-                    <button onclick="joinRoom()" className="btn no-bg">Join</button>
+                    <span></span>
+                    <button onclick="joinRoom()" className="btn no-bg" data-toggle="tooltip" data-placement="left" 
+                    data-html="true" title="Enter a pre-existing meet code to join meet    OR    Enter personalised meet code to create meet(no spaces or special characters)" >
+                      Join meet</button>
                   </div>
                 </div>
+                <br>
+                <br>
+                <div className="input-block">
+                  <div className="input-section">
+                    <input id="chatRoomCode" placeholder="Enter a code" />
+                  </div>
+                  <button onclick="joinChatRoom()" className="btn no-bg" data-toggle="tooltip" data-placement="left" 
+                  data-html="true" title="Enter a pre-existing chat/meet code to join chat    OR    Enter personalised chat code to join chat(no spaces or special characters)">Join Chat room</button>
+                </div>
+              </div>
         </div>
     </div>
 </body>

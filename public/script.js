@@ -11,20 +11,20 @@ const myPeer = new Peer(undefined, {
     // port: '443'
 })
 
-// var currentPeer
-
-//added new
 let myVideoStream;
 const myVideo = document.createElement('video')
-// const myScreen = document.createElement('video')
 
-// const recordScreen = require('record-screen')
+var messages = document.getElementById('messages')
+var chatMessage = document.getElementById('chat_message')
+var newUserName = document.getElementById('userpara')
+
 
 // muting ourselves so that we dont hear ourseles back
 myVideo.muted = true
 
 const peers = {}
 
+// Accessing media and display
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true
@@ -37,7 +37,6 @@ navigator.mediaDevices.getUserMedia({
         const video = document.createElement('video')
         call.on('stream', userVideoStream => {
             addVideoStream(video, userVideoStream)
-            // currentPeer = call.peerConnection
 
         })
         // call.on('close', () => {
@@ -50,37 +49,55 @@ navigator.mediaDevices.getUserMedia({
             connectToNewUser(userId, stream)
         }, 100)   
     })
-
-    // input value
-    let text = $('#chat_message')
-    // let peerName = $('#peername').val()
-    // const peerName = localStorage.getItem("nameEntered")
-    // when press enter send message
-    $('html').keydown(function (e) {
-        if (e.which == 13 && text.val().length !== 0) {
-        console.log(text.val())
-        socket.emit('message', text.val());
-        text.val('')
-        }
+    // Handle output
+    socket.on('output', function(data){
+      console.log(data);
+      if(data.length){
+          for(var x = 0;x < data.length;x++){
+              // Build out message div
+              var message = document.createElement('div');
+              message.setAttribute('class', 'chat-message');
+              message.textContent = data[x].name+': ' +data[x].message;
+              messages.appendChild(message);
+          }
+      }
     });
-    socket.on("createMessage", message => {
-      // console.log(peerName)
-        $("ul").append(`<li class="message"><b>Anonymous</b><br/>${message}</li>`);
-        scrollToBottom()
-    })
+
+    // Handle input
+    chatMessage.addEventListener('keydown', function(event){
+      if(event.which === 13 && event.shiftKey == false){
+          // Emit to server input
+          socket.emit('input', {
+              name:newUserName.value,
+              message:chatMessage.value
+          });
+          
+          chatMessage.value = ''
+
+          event.preventDefault();
+      }
+  })
+
+    // // WITHOUT DB
+    // // input value
+    // let text = $('#chat_message')
+    // // let peerName = $('#peername').val()
+    // // const peerName = localStorage.getItem("nameEntered")
+    // // when press enter send message
+    // $('html').keydown(function (e) {
+    //     if (e.which == 13 && text.val().length !== 0) {
+    //     console.log(text.val())
+    //     socket.emit('message', text.val());
+    //     text.val('')
+    //     }
+    // });
+    // socket.on("createMessage", message => {
+    //   // console.log(peerName)
+    //     $("ul").append(`<li class="message"><b>Anonymous</b><br/>${message}</li>`);
+    //     scrollToBottom()
+    // })
 })
 
-
-// const muteUnmute = () => {
-//   const enabled = myVideoStream.getAudioTracks()[0].enabled;
-//   if (enabled) {
-//     myVideoStream.getAudioTracks()[0].enabled = false;
-//     setUnmuteButton();
-//   } else {
-//     setMuteButton();
-//     myVideoStream.getAudioTracks()[0].enabled = true;
-//   }
-// }
 
 
 const leaveMeet = () => {
@@ -112,10 +129,6 @@ function connectToNewUser(userId, stream) {
     peers[userId] = call
 }
 
-// socket.on('user-connected', userId => {
-//     console.log('User connected: ' + userId)
-// })
-
 function addVideoStream(video, stream) {
     video.srcObject = stream
     video.addEventListener('loadedmetadata', () => {
@@ -124,12 +137,13 @@ function addVideoStream(video, stream) {
     videoGrid.append(video)
 }
 
+// scroll for chat in meet
 const scrollToBottom = () => {
     var d = $('.main__chat_window');
     d.scrollTop(d.prop("scrollHeight"));
   }
   
-  
+// Mute/unmute audio
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
@@ -141,6 +155,7 @@ const muteUnmute = () => {
   }
 }
   
+// Play/stop video
 const playStop = () => {
   // console.log('object')
   let enabled = myVideoStream.getVideoTracks()[0].enabled;
@@ -186,27 +201,27 @@ const setPlayVideo = () => {
 }
 
 
-const screenRecord = () => {
-  console.log("in rec")
-  const recording = recordScreen('/tmp/test.mp4', {
-    resolution: '1440x900' // Display resolution
-  })
+// const screenRecord = () => {
+//   console.log("in rec")
+//   const recording = recordScreen('/tmp/test.mp4', {
+//     resolution: '1440x900' // Display resolution
+//   })
   
-  recording.promise
-    .then(result => {
-      // Screen recording is done
-      process.stdout.write(result.stdout)
-      process.stderr.write(result.stderr)
-    })
-    .catch(error => {
-      // Screen recording has failed
-      console.error(error)
-    })
+//   recording.promise
+//     .then(result => {
+//       // Screen recording is done
+//       process.stdout.write(result.stdout)
+//       process.stderr.write(result.stderr)
+//     })
+//     .catch(error => {
+//       // Screen recording has failed
+//       console.error(error)
+//     })
   
-  // As an example, stop the screen recording after 10 seconds:
-  setTimeout(() => recording.stop(), 10000)
-  console.log("rec 10 done")
-}
+//   // As an example, stop the screen recording after 10 seconds:
+//   setTimeout(() => recording.stop(), 10000)
+//   console.log("rec 10 done")
+// }
 
 
 
