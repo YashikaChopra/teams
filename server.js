@@ -18,7 +18,7 @@ const peerServer = ExpressPeerServer(server, {
     debug: true
 });
 
-mongodb+srv://new_user:teams_clone@cluster0.66epb.mongodb.net/mongochat?retryWrites=true&w=majority
+"mongodb+srv://new_user:teams_clone@cluster0.66epb.mongodb.net/mongochat?retryWrites=true&w=majority"
 
 const mongo = require('mongodb').MongoClient
 
