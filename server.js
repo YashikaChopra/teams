@@ -18,6 +18,8 @@ const peerServer = ExpressPeerServer(server, {
     debug: true
 });
 
+mongodb+srv://new_user:teams_clone@cluster0.66epb.mongodb.net/mongochat?retryWrites=true&w=majority
+
 const mongo = require('mongodb').MongoClient
 
 // rendering views, using ejs lib
@@ -52,7 +54,7 @@ var url = 'mongodb://127.0.0.1'
 
 
 // Connect to mongodb
-mongo.connect(url, function(err, client){
+mongo.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function(err, client){
     if(err){
         throw err;
     }
