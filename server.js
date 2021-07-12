@@ -96,7 +96,7 @@ mongo.connect(url, function(err, client){
                 }
                 else {
                     // Insert the message to collection
-                    chat.insert({name: name, message: message}, function(){
+                    chat.insertOne({name: name, message: message}, function(){
                         io.emit('output', [data]);
                     })
                 }
@@ -135,7 +135,7 @@ mongo.connect(url, function(err, client){
                 }
                 else {
                     // Insert the message to collection
-                    chat.insert({name: name, message: message}, function(){
+                    chat.insertOne({name: name, message: message}, function(){
                         io.emit('load msgs', [data]);
                     })
                 }

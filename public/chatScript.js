@@ -42,8 +42,8 @@ textarea.addEventListener('keydown', function(event){
 // Handle output
 socket.on('output', function(data){
 
-    console.log("in out" , data);
-    console.log(data.length)
+    // console.log("in out" , data);
+    // console.log(data.length)
     // Build out message div
     var message = document.createElement('div');
     message.setAttribute('class', 'chat-message');
