@@ -73,7 +73,7 @@ navigator.mediaDevices.getUserMedia({
           });
           
           chatMessage.value = ''
-
+          scrollToBottom()
           event.preventDefault();
       }
   })
