@@ -12,8 +12,13 @@
     <link rel="stylesheet" href="homeStyle.css">
     <script>
         function joinRoom(){
-           var code = document.getElementById('codelink').value 
-           window.location.href = '/' + code
+           var code = document.getElementById('codelink').value
+           if(code == ""){
+             alert("Meet code can not be empty")
+           } 
+           else{
+            window.location.href = '/' + code
+           } 
         }
         function joinChatRoom(){
            var chatcode = document.getElementById('chatRoomCode').value
