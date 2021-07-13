@@ -34,6 +34,9 @@
             // alert("Copied the call code: " + dummy.value);
             document.body.removeChild(dummy);
         }
+        function leaveChat(){
+            window.location.href='/'
+        }
     </script>
     <title>Teams Chat</title>
 </head>
@@ -59,7 +62,9 @@
                     <br>
                     <textarea id="textarea" class="form-control" placeholder="Enter message..."></textarea>
                 </div>
-                
+                 <div onclick="leaveChat()" class="text-center">
+                    <button style="text-align: center;">Leave Chat</button>
+                 </div>
             </div>
         </div>
     </div>

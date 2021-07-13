@@ -2,7 +2,7 @@
     /* height: 100vh; */
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
 }
 body{
     background-image: url("img.png");
