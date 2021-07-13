@@ -79,15 +79,6 @@ mongo.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function(err, 
             // console.log("NEXT IS TYPE OF ROOMid", typeof roomId, roomId)
             let chat = db.collection(roomId);
 
-            // Get chats from roomid collection
-            chat.find().toArray(function(err, res){ // removed {} => find({})
-                if(err){
-                    throw err
-                }
-                // Emits the message
-                socket.emit('output', res) 
-            })
-
             //  Handling input
             socket.on('input', function(data){
                 let name = data.name;
