@@ -24,7 +24,7 @@ clone version 1.3
 [Teams](https://morning-dawn-31919.herokuapp.com/)
 
 ## Demo video link
-[Demo](https://youtu.be/638U9XbTcRo)
+[Demo](https://youtu.be/gJHoeQeU87Q)
 
 ## Agile ppt link
 [Agile](https://docs.google.com/presentation/d/1hOhH5VMHTUGAS1ER-lazhvUOAz0WJxMg-ZmPuePBJp4/edit?usp=sharing)
