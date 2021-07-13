@@ -16,7 +16,10 @@
            window.location.href = '/' + code
         }
         function joinChatRoom(){
-           var chatcode = document.getElementById('chatRoomCode').value 
+           var chatcode = document.getElementById('chatRoomCode').value
+           if(chatcode == ""){
+             alert("Chat code can not be empty")
+           }
            window.location.href = '/chat/' + chatcode
         }
     </script>
