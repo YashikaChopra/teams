@@ -24,7 +24,10 @@ clone version 1.3
 [Teams](https://morning-dawn-31919.herokuapp.com/)
 
 ## Demo video link
+[Demo](https://youtu.be/638U9XbTcRo)
 
+## Agile ppt link
+[Agile](https://docs.google.com/presentation/d/1hOhH5VMHTUGAS1ER-lazhvUOAz0WJxMg-ZmPuePBJp4/edit?usp=sharing)
 
 ## App Features
 - Video-conferencing
@@ -41,6 +44,8 @@ clone version 1.3
 - Join button: To join to the room whose code is entered in the text box or create a personalised meet code to enter meet
 - Join chat button: To join to the chat whose code is entered in the text box(will contain chats of previous chat sessions and meets) or create a personalised chat code to enter chat
 
+![Home](./screenshots/home.png)
+
 #### Video-conferencing page
 - Mute/Unmute button: Allows to mute/unmute audio
 - Stop Video/Play Video button: Allows to Stop/Play Video
@@ -48,10 +53,13 @@ clone version 1.3
 - Leave Meeting button: To leave the video-conference
 - Chat: To chat with everyone in the meet.
 
+![Meet](./screenshots/ssMeet.png)
+
 #### Chat room
 - Enter message and hit enter to send messages to everyone in the chat room (will contain chats of previous chat sessions and meets)
 - copy code: To copy chat room code
 
+![Chat](./screenshots/ssChat.png)
 
 ## Tech Stack
 - MongoDB Atlas
