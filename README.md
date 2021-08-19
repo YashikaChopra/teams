@@ -33,7 +33,7 @@ clone version 1.3
 - Video-conferencing
 - Audio/Video turn on/off feature
 - Leave video-conference
-- Copying meet abd chat room codes
+- Copying meet and chat room codes
 - Chat before, during and after meet
 
 ### Working of app
@@ -65,7 +65,7 @@ clone version 1.3
 - MongoDB Atlas
 - Express (Nodejs)
 - Socket.io
-- Peerjs (WebRTC)
+- Peer (WebRTC)
 - short-uuid
 - Bootstrap
 - JQuery
