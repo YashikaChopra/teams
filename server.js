@@ -90,7 +90,8 @@ mongo.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function(err, 
                 else {
                     // Insert the message to collection
                     chat.insertOne({name: name, message: message}, function(){
-                        io.emit('output', [data]);
+                        // io.emit('output', [data]);
+                        io.to(roomId).emit('output', [data]);
                     })
                 }
             })
@@ -129,7 +130,7 @@ mongo.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function(err, 
                 else {
                     // Insert the message to collection
                     chat.insertOne({name: name, message: message}, function(){
-                        io.emit('load msgs', [data]);
+                        io.to(chatRoomId).emit('load msgs', [data]);
                     })
                 }
             })
